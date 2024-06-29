@@ -10,11 +10,16 @@ export const useCounter = ( {initialValue = 0}: Options ) => {
     const [ count, setCount ] = useState<number>(initialValue);
 
     const aumentar = (value: number) => {
-        setCount(count + value);
+        const newValue = count + value;
+        if (newValue >= 0) {
+            setCount(count + value);
+        }
     }
 
     const disminuir = (value: number) => {
-        setCount(count - value);
+
+            setCount(count - value);
+
     }
 
     const restart = (value: number) => {

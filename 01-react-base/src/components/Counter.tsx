@@ -4,17 +4,11 @@ export const Counter = () => {
     const [count, setCount] = useState(10);
 
     const aumentar = (value: number) => {
-        const newValue = count + value;
-        if (newValue >= 0) {
-            setCount(count + value);
-        }
+        setCount(count + value);
     }
 
     const disminuir = (value: number) => {
-        const newValue = count + value;
-        if (newValue >= 0) {
-            setCount(count - value);
-        }
+        setCount(count - value);
     }
 
     const restart = (value: number) => {
