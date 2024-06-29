@@ -100,3 +100,10 @@ paste JSON as Code
 
 6) para solucionar posibles errores de instalacion
   # npx react-native doctor  ---> f
+
+7) abrir Android Studio -> Device Manager -> select system image (pixel XL) -> seleccionar API 35
+-> Next -> Graphics: Hardware -> show advanced settings -> RAM 3 GB , Internal Storage 4 GB -> FINISH
+  1) Seleccionar el emulador y darle play
+
+8) # npm start -> a 
+ en la carpeta del proyecto
