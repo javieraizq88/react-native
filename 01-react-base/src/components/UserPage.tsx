@@ -1,63 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import axios from 'axios';
-import { ReqResUserListResponse, User } from "../interfaces";
-
-const loadUsers = async (page: number = 1): Promise<User[]> => {
-    try {
-        // TODO: el get espera el formato de ReqResUserListResponse y resp los usuarios
-        const { data } = await axios.get<ReqResUserListResponse>('https://reqres.in/api/users', {
-            params: {
-                page: page
-            }
-        })
-        // fetch('https://reqres.in/api/users?page=2')
-        //     .then(resp => resp.json())
-        //     .then(data => console.log(data));
-        return data.data;
-
-    } catch (error) {
-        console.log(error);
-        return [];
-    }
-}
+import { useUsers } from "../hooks/useUser";
+import { UserRow } from "./UserRow";
 
 
 export const UserPage = () => {
 
-    const [users, setUsers] = useState<User[]>([]);
-
-    const currentPageRef = useRef(1);
-
-
-
-    useEffect(() => {
-        // TODO muestra en q pagina estas
-        loadUsers(currentPageRef.current)
-            .then(users => setUsers(users))
-        // TODO es lo mismo que lo de arriba
-        // loadUsers().then ( setUsers )
-
-    }, [])
-
-    const nextPage = async () => {
-        currentPageRef.current++;
-        const users = await loadUsers(currentPageRef.current);
-
-        // TODO si la pagina es mayor a 0, muestra los usuarios,  ELSE devuelve el contenido de la pagina anterior 
-        if (users.length > 0) {
-            setUsers(users);
-        } else {
-            currentPageRef.current--;
-        }
-    }
-
-    const previousPage = async() => {
-        if (currentPageRef.current < 1) return;
-
-        currentPageRef.current--;
-       const users = await loadUsers(currentPageRef.current);
-       setUsers(users);
-    }
+    const { users, nextPage, previousPage } = useUsers();
 
     return (
         <>
@@ -79,30 +26,9 @@ export const UserPage = () => {
                 </tbody>
             </table>
 
-            <button onClick={ previousPage } className="btn btn-danger">Prev</button>
-            <button onClick={ nextPage } className="btn btn-primary">Next</button>
+            <button onClick={previousPage} className="btn btn-danger">Prev</button>
+            <button onClick={nextPage} className="btn btn-primary">Next</button>
 
         </>
-    )
-}
-
-
-
-interface Props {
-    user: User;
-}
-
-
-
-export const UserRow = ({ user }: Props) => {
-
-    const { avatar, first_name, last_name, email } = user;
-
-    return (
-        <tr>
-            <td> <img className="userImg" src={avatar} alt="" /> </td>
-            <td> {first_name} {last_name} </td>
-            <td> {email} </td>
-        </tr>
     )
 }
