@@ -1,4 +1,4 @@
-import { BasicFunctions, BasicTypes, ObjectLiterals } from "./typescript"
+import { BasicFunctions, BasicTypes, Counter, ObjectLiterals } from "./typescript"
 
 function App() {
 
@@ -9,7 +9,8 @@ function App() {
 
       {/* <BasicTypes /> */}
       {/* <ObjectLiterals /> */}
-      <BasicFunctions />
+      {/* <BasicFunctions /> */}
+      <Counter/> 
 
     </main>
   )

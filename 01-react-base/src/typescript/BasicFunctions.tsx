@@ -4,7 +4,6 @@ const sumar = ( a: number, b: number): string => {
     return (a + b).toString();
 }    
 
-
         return(
             <>
              <h2>funciones</h2>
