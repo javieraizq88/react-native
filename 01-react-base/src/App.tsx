@@ -5,7 +5,7 @@ function App() {
 
   return (
     <main>
-      <h1>React Native intro</h1>
+      {/* <h1>React Native intro</h1> */}
 
 
       {/* <BasicTypes /> */}
