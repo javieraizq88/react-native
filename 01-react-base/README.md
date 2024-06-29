@@ -31,6 +31,20 @@ export default {
 
 
 
-npm i zustand
+# npm i zustand
 
 zustand => para no instalar redux, contextAPI etc
+
+# npm i axios
+
+# En interfaces
+1.- crear request response -> reqres.interface.ts
+2.- shift + command + p
+3.- en el buscador escribir paste JSON as code
+4.- En el clip board tiene guardada el JSON se le puede poner cualquier nombre y va a crear una interfaz con esa info
+
+
+
+
+### extension
+paste JSON as Code
