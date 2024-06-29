@@ -1,4 +1,4 @@
-import { CounterWithHook } from "./components"
+import { CounterWithHook, LoginPage } from "./components"
 import { BasicFunctions, BasicTypes, Counter, ObjectLiterals } from "./typescript"
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       {/* <ObjectLiterals /> */}
       {/* <BasicFunctions /> */}
       {/* <Counter/>  */}
-      <CounterWithHook />
-
+      {/* <CounterWithHook /> */}
+<LoginPage />
 
     </main>
   )
