@@ -1,9 +1,14 @@
+import { BasicTypes } from "./typescript"
 
 function App() {
 
   return (
     <main>
-      <h1>React intro</h1>
+      <h1>React Native intro</h1>
+
+
+      <BasicTypes />
+
     </main>
   )
 }
